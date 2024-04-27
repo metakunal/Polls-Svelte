@@ -1,19 +1,23 @@
 <script>
+  import { handle_promise } from "svelte/internal";
+
 	let name="World";
-	let count=0;
-	let handleInc=()=>{
-		count++;
+	let beltColour="black"
+	let setColour=()=>{
+		beltColour="Orange";
 	}
-	let handleDec=()=>{
-		count--;
+	let handleInput=(e)=>{
+		beltColour=e.target.value;
 	}
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>The count as of now is {count}</p>
-	<button on:click={handleInc}>Increase</button>
-	<button on:click={handleDec}>Decrease</button>
+	<p style="color: {beltColour};">You are {beltColour} belt</p>
+	<button on:click={setColour}>Set Colour</button>
+	<!-- <input type="text" on:input={handleInput} value={beltColour}> -->
+	<!-- One Way data binding -->
+	<input type="text" bind:value={beltColour}>
 </main>
 
 <style>
