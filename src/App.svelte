@@ -1,10 +1,19 @@
 <script>
-	export let name;
+	let name="World";
+	let count=0;
+	let handleInc=()=>{
+		count++;
+	}
+	let handleDec=()=>{
+		count--;
+	}
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<p>The count as of now is {count}</p>
+	<button on:click={handleInc}>Increase</button>
+	<button on:click={handleDec}>Decrease</button>
 </main>
 
 <style>
