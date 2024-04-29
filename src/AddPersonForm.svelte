@@ -1,12 +1,24 @@
 <script>
+
+import {createEventDispatcher} from 'svelte';
+
+let dispatch=createEventDispatcher();
 let name;
 let beltColour;
 let age;
-let skills=[]
+let skills=[];
 
 const handleSubmit=()=>{
-    console.log(name,beltColour,age, skills)
-}
+    const person={
+        name,
+        beltColour,
+        age,
+        skills,
+        id:Math.random()
+    }
+    dispatch('addPerson',person)
+};
+
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
