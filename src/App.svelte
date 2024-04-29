@@ -13,7 +13,7 @@ let people = [
 
 </script>
 
-<Modal/>
+<Modal message="Hey, I am a Model" isPromo="false"/>
 <main>
 	{#if num>20}
 		<p>Number greater than 20</p>
