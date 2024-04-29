@@ -7,11 +7,24 @@ let people = [
   let handleDelete=(id)=>{
 	people=people.filter((person)=>id!=person.id)
   }
+
+  let num=25;
+
 </script>
 
 <main>
+	{#if num>20}
+		<p>Number greater than 20</p>
+	{:else if num>5}
+	<p>Number greater than 5</p>
+	{:else}
+	<p>Number less than 5</p>
+	{/if}
 	{#each people as person (person.id)}
 	<div>
+		{#if person.beltColour==="black"}
+		<b>MASTER NINJA</b>
+		{/if}
 		<h4>{person.name}</h4>
 		<p>{person.age} years old, {person.beltColour} belt</p>
 	</div>
