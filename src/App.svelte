@@ -1,22 +1,29 @@
 <script>
   import { handle_promise } from "svelte/internal";
 
-	let name="World";
+	let firstName="Kunal";
+	let lastName="Yadav"
 	let beltColour="black"
-	let setColour=()=>{
-		beltColour="Orange";
+
+	//Reactive Values
+	$: fullName=`${firstName} ${lastName}`
+	//Reactive Statements
+	$: {
+		console.log(firstName);
+		console.log(beltColour)
 	}
-	let handleInput=(e)=>{
-		beltColour=e.target.value;
-	}
+	// let setColour=()=>{
+	// 	beltColour="Orange";
+	// }
+	// let handleInput=(e)=>{
+	// 	beltColour=e.target.value;
+	// }
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p style="color: {beltColour};">You are {beltColour} belt</p>
-	<button on:click={setColour}>Set Colour</button>
-	<!-- <input type="text" on:input={handleInput} value={beltColour}> -->
-	<!-- One Way data binding -->
+	<h1>{fullName} {beltColour} belt</h1>
+	<input type="text" bind:value={firstName}>
+	<input type="text" bind:value={lastName}>
 	<input type="text" bind:value={beltColour}>
 </main>
 
