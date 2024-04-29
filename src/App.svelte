@@ -1,30 +1,20 @@
 <script>
-  import { handle_promise } from "svelte/internal";
-
-	let firstName="Kunal";
-	let lastName="Yadav"
-	let beltColour="black"
-
-	//Reactive Values
-	$: fullName=`${firstName} ${lastName}`
-	//Reactive Statements
-	$: {
-		console.log(firstName);
-		console.log(beltColour)
-	}
-	// let setColour=()=>{
-	// 	beltColour="Orange";
-	// }
-	// let handleInput=(e)=>{
-	// 	beltColour=e.target.value;
-	// }
+let people = [
+    { name: 'yoshi', beltColour: 'black', age: 25, id: 1 },
+    { name: 'mario', beltColour: 'orange', age: 45, id: 2 },
+    { name: 'luigi', beltColour: 'brown', age: 35, id: 3 }
+  ];
 </script>
 
 <main>
-	<h1>{fullName} {beltColour} belt</h1>
-	<input type="text" bind:value={firstName}>
-	<input type="text" bind:value={lastName}>
-	<input type="text" bind:value={beltColour}>
+	{#each people as person (person.id)}
+	<div>
+		<h4>{person.name}</h4>
+		<p>{person.age} years old, {person.beltColour} belt</p>
+	</div>
+	{:else}
+		<p>There are no people to show</p>
+	{/each}
 </main>
 
 <style>
