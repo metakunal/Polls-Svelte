@@ -17,7 +17,13 @@ let people = [
   };
 </script>
 
-<Modal message="Hey, I am a Model" {showModal} on:click={toggleModal}/>
+<Modal message="Hey, I am a Model" {showModal} on:click={toggleModal}>
+<form>
+	<input type="text" placeholder="Add Name">
+	<input type="text" placeholder="Add Belt Color">
+	<button>Add Ninja</button>
+</form>
+</Modal>
 <main>
 	<button on:click|once={toggleModal}>Open Modal</button>
 	{#each people as person (person.id)}
