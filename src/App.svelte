@@ -9,19 +9,17 @@ let people = [
 	people=people.filter((person)=>id!=person.id)
   }
 
-  let num=25;
+  
+  let showModal = false;
 
+  let toggleModal = () => {
+    showModal = !showModal;
+  };
 </script>
 
-<Modal message="Hey, I am a Model" isPromo="false"/>
+<Modal message="Hey, I am a Model" {showModal} on:click={toggleModal}/>
 <main>
-	{#if num>20}
-		<p>Number greater than 20</p>
-	{:else if num>5}
-	<p>Number greater than 5</p>
-	{:else}
-	<p>Number less than 5</p>
-	{/if}
+	<button on:click={toggleModal}>Open Modal</button>
 	{#each people as person (person.id)}
 	<div>
 		{#if person.beltColour==="black"}
